@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><h3 style="margin:0 0 8px 0;">Keeper</h3></title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 12px; width: 320px; }
+    label { display:block; font-size: 12px; color:#555; margin-bottom:4px; }
+    input[type=text] { width:100%; padding:8px; border:1px solid #ddd; border-radius:8px; }
+    button { padding:8px 10px; border:0; border-radius:8px; cursor:pointer; }
+    .row { display:flex; gap:8px; align-items:center; margin-top:8px; }
+    .muted { color:#666; font-size:12px; }
+    .status { margin-top:8px; font-size:12px; }
+    .ok { color: #0a7f2e; } .err { color:#b00020; }
+    a { color:#0b57d0; text-decoration:none; }
+    .actions { display:flex; justify-content:space-between; align-items:center; margin-top:10px; }
+  </style>
+</head>
+<body>
+  <h3 style="margin:0 0 8px 0;">Notion Highlighter</h3>
+  <label for="project">Project name</label>
+  <input id="project" type="text" placeholder="e.g., Reading, Work, Ideas" />
+  <div class="actions">
+    <button id="saveProject">Set as current</button>
+    <a id="openOptions" href="#">Options</a>
+  </div>
+  <div id="db" class="muted"></div>
+  <div id="status" class="status muted"></div>
+  <script type="module" src="./popup.js"></script>
+</body>
+</html>

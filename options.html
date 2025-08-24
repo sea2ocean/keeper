@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notion Highlighter • Setup</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 18px; max-width: 760px; }
+    h2 { margin-top: 24px; }
+    label { display:block; font-size: 12px; color:#555; margin-bottom:4px; }
+    input[type=text] { width:100%; padding:8px; border:1px solid #ddd; border-radius:8px; margin-bottom:8px; }
+    button { padding:8px 12px; border:0; border-radius:8px; cursor:pointer; }
+    .row { display:flex; gap:12px; align-items:center; }
+    .muted { color:#666; font-size:12px; }
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+    .card { border:1px solid #e6e6e6; border-radius:12px; padding:12px; }
+    .db { padding:8px; border:1px solid #eee; border-radius:8px; margin-top:8px; cursor:pointer; }
+    .db.selected { border-color:#0b57d0; background:#f1f6ff; }
+    .error { color:#b00020; }
+    code { background:#f6f6f6; padding:2px 4px; border-radius:6px; }
+  </style>
+</head>
+<body>
+  <h1>Notion Highlighter – Setup</h1>
+  <p class="muted">Choose how you want to connect to Notion. OAuth (recommended) requires a tiny token-exchange endpoint; “Internal token” is simplest for personal use.</p>
+  <div class="grid">
+    <div class="card">
+      <h2>Option A — OAuth</h2>
+      <label>Notion OAuth Client ID</label>
+      <input id="oauthClientId" placeholder="463558a3-...." />
+      <label>Authorization URL (from Notion settings)</label>
+      <input id="oauthAuthUrl" placeholder="https://api.notion.com/v1/oauth/authorize?owner=user" />
+      <label>Token Exchange Endpoint URL</label>
+      <input id="tokenExchangeUrl" placeholder="https://your-worker.example.workers.dev" />
+      <div class="row">
+        <button id="beginAuth">Sign in & Authorize</button>
+        <button id="saveOAuth">Save</button>
+      </div>
+      <p class="muted">Make sure your Notion integration has a redirect URI set to <code>https://&lt;extension-id&gt;.chromiumapp.org/notion</code>.</p>
+      <div id="oauthStatus" class="muted"></div>
+    </div>
+    <div class="card">
+      <h2>Option B — Internal Token</h2>
+      <label>Internal Integration Token</label>
+      <input id="internalToken" placeholder="secret_..." />
+      <div class="row">
+        <button id="saveInternal">Use this token</button>
+      </div>
+      <p class="muted">Share your database with this integration via Notion → ••• → <b>Add connections</b>.</p>
+      <div id="intStatus" class="muted"></div>
+    </div>
+  </div>
+
+  <h2>Pick your Notion database</h2>
+  <div class="row">
+    <button id="refreshDbs">Refresh list</button>
+  </div>
+  <div id="dbList"></div>
+  <div id="dbStatus" class="muted"></div>
+
+  <script type="module" src="./options.js"></script>
+</body>
+</html>

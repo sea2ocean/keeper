@@ -1,0 +1,14 @@
+# Node & tooling
+node_modules/
+npm-debug.log*
+
+# Build artifacts / zips
+*.zip
+dist/
+
+# Local secrets (if you keep worker env locally for testing)
+.env
+.env.*
+
+#
+.DS_Store
