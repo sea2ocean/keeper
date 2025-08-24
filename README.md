@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="icons/keeper-logo.png" alt="Keeper Logo" width="400"/>
+  <img src="icons/keeper-banner.png" alt="Keeper Banner"/>
 </p>
 
 # Keeper – Notion Highlighter
