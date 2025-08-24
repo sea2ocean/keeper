@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="icons/keeper-logo.png" alt="Keeper Logo" width="400"/>
+</p>
+
 # Keeper – Notion Highlighter
 
 Keeper is a Chrome/Edge extension that lets you **capture highlights** from any webpage and send them directly to a Notion database along with the page URL, capture timestamp, and a per-selection **Project** tag.
