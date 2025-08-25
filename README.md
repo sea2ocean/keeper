@@ -16,10 +16,10 @@ Keeper is a Chrome/Edge extension that lets you **capture highlights** from any 
 >
 > | Name          | Type       |
 > |---------------|------------|
-> | Content       | rich_text  |
+> | Content       | text       |
 > | URL           | url        |
 > | Date Captured | date       |
-> | Project       | rich_text  |
+> | Project       | text       |
 >
 > The database must also have a single **title** property (any name; the extension auto-detects it).
 
@@ -111,45 +111,8 @@ npm test
 
 ---
 
-## Security & privacy notes
-
-- **Never ship your Notion client_secret in the extension.** The provided worker performs the `code → token` exchange on a server you control.
-- Tokens are stored in **`chrome.storage.sync`** on your browser profile. If you want local-only, switch `src/storage.js` to `chrome.storage.local`.
-- If you use an **Internal Integration Token**, do not commit it anywhere. Treat it like a password.
-- The extension only talks to the Notion API and your token-exchange endpoint (for OAuth).
-
----
-
 ## License
 
 MIT
 
 ---
-
-## Contributing
-
-PRs to improve schema mapping (e.g., custom property names, tags/multi-select) or add tests are welcome.
-
----
-
-### GitHub: what to commit, what to keep private
-
-**Safe to push:**
-- All source files
-- Icons, static assets
-- Example screenshots/GIFs
-
-**Must NOT commit:**
-- **Internal Integration Token**
-- **Client secret** for your Notion OAuth app
-- Any **real access/refresh tokens**
-
-**.gitignore suggestion:**
-```
-node_modules/
-npm-debug.log*
-*.zip
-dist/
-.env
-.env.*
-```
